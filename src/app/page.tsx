@@ -5,7 +5,6 @@ import Image from "next/image";
 import { FaInstagram, FaTiktok } from "react-icons/fa"; 
 import Navbar from "../app/navbar";
 import FeatureCard from "../app/featurecard";
-import ParticleBackground from "../app/particles";
 import 'aos/dist/aos.css';
 import AOS from "aos";
 
@@ -31,7 +30,6 @@ export default function Home() {
         style={{ backgroundImage: "url('/images/gtw.png')" }}
       >
         {/* Particle effect overlay */}
-        <ParticleBackground className="z-10" />
         
         <div className="absolute inset-0 z-0">
           <Image 
@@ -83,7 +81,6 @@ export default function Home() {
       {/* About Us Section with Particles */}
       <section id="about" className="py-24 px-4 bg-gradient-to-b from-gray-100 to-white relative">
         <div className="absolute inset-0 opacity-20">
-          <ParticleBackground />
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10" data-aos="fade-up">
           <div className="inline-block mb-6 relative">
@@ -165,7 +162,6 @@ export default function Home() {
       {/* Video Section with Particles */}
       <section id="videos" className="py-24 px-4 bg-gradient-to-b from-white to-gray-100 relative">
         <div className="absolute inset-0 opacity-20">
-          <ParticleBackground />
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10" data-aos="fade-up">
           <div className="inline-block mb-10 relative">
@@ -232,7 +228,6 @@ export default function Home() {
       {/* Footer with Animated Particles */}
       <footer className="py-16 w-full bg-gray-800 text-white relative">
         <div className="absolute inset-0 opacity-10">
-          <ParticleBackground />
         </div>
         <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
           <div className="flex items-center justify-center gap-8 mb-8">
