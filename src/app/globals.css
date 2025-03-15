@@ -11,3 +11,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
 }
 
+@keyframes lineAnimation {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+.line {
+  height: 2px;
+  background-color: #FFA500; /* Warna oranye */
+  animation: lineAnimation 2s infinite;
+}
