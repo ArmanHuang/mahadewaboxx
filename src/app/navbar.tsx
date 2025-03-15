@@ -40,44 +40,44 @@ const Navbar = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const closeMenuAndScroll = () => {
+  const closeMenuAndScroll = (target: string) => {
+    // Ensure smooth scroll after closing the mobile menu
     setIsOpen(false);  // Close the mobile menu when a link is clicked
-    window.scrollTo({ top: 0, behavior: 'smooth' });  // Optional: smooth scroll to the top
-  };
-
-  const handleLinkClick = () => {
-    // Ensure the mobile menu is closed when clicking a link
-    setIsOpen(false);
+    setTimeout(() => {
+      document.getElementById(target)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 300);  // Delay scroll to allow menu to close
   };
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300 ease-in-out ${
         isScrolled
-          ? 'bg-white bg-opacity-90 backdrop-blur-md shadow-md py-3'
-          : 'bg-[#F8F3D9] py-3.5'
+          ? 'bg-white bg-opacity-80 backdrop-blur-md shadow-lg py-3'
+          : 'bg-[#F8F3D9] py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div
-          className={`text-2xl font-bold transition-colors duration-300 ${
+          className={`text-2xl font-bold transition-all duration-300 ${
             isScrolled ? 'text-black' : 'text-black'
           }`}
         >
           <Link
-          href="#home"
-          scroll={false}
-          onClick={() => {
-            document.getElementById('home')?.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            });
-          }}
-          className="flex items-center hover:text-amber-600 transition-all duration-500 ease-in-out transform hover:scale-105"
-        >
-          Mahadewabox
-        </Link>
-
+            href="#home"
+            scroll={false}
+            onClick={() => {
+              document.getElementById('home')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              });
+            }}
+            className="flex items-center hover:text-amber-600 transition-all duration-500 ease-in-out transform hover:scale-105"
+          >
+            Mahadewabox
+          </Link>
         </div>
 
         {/* Desktop Menu */}
@@ -115,16 +115,16 @@ const Navbar = () => {
       <div
         ref={menuRef}
         className={`md:hidden fixed inset-0 bg-opacity-90 backdrop-blur-md z-40
-          transition-all duration-300 ease-in-out transform
+          transition-transform duration-500 ease-in-out transform
           ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}
         `}
       >
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-4">
+        <div className="flex flex-col h-full justify-center items-center space-y-8 p-6">
           {['home', 'about', 'characters', 'content', 'contact'].map((item) => (
             <Link
               key={item}
               href={`#${item}`}
-              onClick={handleLinkClick} // Close the mobile menu when a link is clicked
+              onClick={() => closeMenuAndScroll(item)} // Close the mobile menu and scroll
               className="text-yellow text-2xl font-medium hover:text-yellow-400 transition-colors duration-300"
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}

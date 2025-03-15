@@ -28,3 +28,16 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #FFA500; /* Warna oranye */
   animation: lineAnimation 2s infinite;
 }
+
+/* Tambahan CSS */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-item {
+  overflow: visible;
+}

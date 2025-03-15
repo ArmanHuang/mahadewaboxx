@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaInstagram, FaTiktok } from "react-icons/fa"; 
@@ -8,6 +7,52 @@ import Particles from "react-tsparticles";
 import { motion } from "framer-motion"; // Import framer-motion
 import 'aos/dist/aos.css';
 import AOS from "aos";
+
+// Define your data arrays outside the component
+const features = [
+  {
+    emoji: "🎭",
+    title: "Parodi Kreatif",
+    description: "Konten parodi original yang mengambil inspirasi dari pengalaman nyata mahasiswa Indonesia",
+    delay: 100
+  },
+  {
+    emoji: "🔥",
+    title: "Konten Viral",
+    description: "Selalu update dengan tren terbaru di kalangan mahasiswa dan media sosial Indonesia",
+    delay: 200
+  },
+  {
+    emoji: "😂",
+    title: "Humor Lokal",
+    description: "Menyajikan humor khas Indonesia yang relatable untuk semua kalangan",
+    delay: 300
+  }
+];
+
+const characters = [
+  { img: "loppy", name: "Loppy", desc: "Mahasiswa" },
+  { img: "anomali", name: "Anomali", desc: "Mahasiswa" },
+  { img: "character3", name: "Character 3", desc: "Coming Soon!" }
+];
+
+const videos = [
+  {
+    title: "Coming Soon",
+    views: "0 juta views",
+    time: "0 hari yang lalu"
+  },
+  {
+    title: "Coming Soon",
+    views: "0 juta views",
+    time: "0 hari yang lalu"
+  },
+  {
+    title: "Coming Soon",
+    views: "0 juta views",
+    time: "0 hari yang lalu"
+  }
+];
 
 const Home: React.FC = () => {
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
@@ -45,7 +90,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <header 
         id="home" 
-        className="relative w-full h-[800px] md:h-screen flex items-center justify-center bg-no-repeat bg-center bg-cover"
+        className="relative w-full h-[500px] md:h-screen flex items-center justify-center bg-no-repeat bg-center bg-cover"
         style={{
           backgroundImage: "url('/images/Mobile-Banner.png')" // version mobile
         }}
@@ -266,26 +311,7 @@ const Home: React.FC = () => {
 
         {/* Feature Cards */}
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto relative z-10">
-          {[
-            {
-              emoji: "🎭",
-              title: "Parodi Kreatif",
-              description: "Konten parodi original yang mengambil inspirasi dari pengalaman nyata mahasiswa Indonesia",
-              delay: 100
-            },
-            {
-              emoji: "🔥",
-              title: "Konten Viral",
-              description: "Selalu update dengan tren terbaru di kalangan mahasiswa dan media sosial Indonesia",
-              delay: 200
-            },
-            {
-              emoji: "😂",
-              title: "Humor Lokal",
-              description: "Menyajikan humor khas Indonesia yang relatable untuk semua kalangan",
-              delay: 300
-            }
-          ].map((feature, index) => (
+          {features.map((feature, index) => (
             <motion.div 
               key={index} 
               className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" 
@@ -378,11 +404,7 @@ const Home: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-            {[
-              { img: "loppy", name: "Loppy", desc: "Mahasiswa" },
-              { img: "anomali", name: "Anomali", desc: "Mahasiswa" },
-              { img: "character3", name: "Character 3", desc: "Coming Soon!" }
-            ].map((char, index) => (
+            {characters.map((char, index) => (
               <motion.div 
                 key={index} 
                 className="relative group"
@@ -493,23 +515,7 @@ const Home: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Coming Soon",
-                views: "0 juta views",
-                time: "0 hari yang lalu"
-              },
-              {
-                title: "Coming Soon",
-                views: "0 juta views",
-                time: "0 hari yang lalu"
-              },
-              {
-                title: "Coming Soon",
-                views: "0 juta views",
-                time: "0 hari yang lalu"
-              }
-            ].map((video, index) => (
+            {videos.map((video, index) => (
               <motion.div 
                 key={index} 
                 className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer"
@@ -520,14 +526,14 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.5 }} // Durasi animasi
               >
                 <div className="aspect-video relative bg-gray-800">
-                <div className="relative w-full h-full">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-yellow-500 bg-opacity-90 rounded-full flex items-center justify-center transition-transform duration-300 transform group-hover:scale-110">
-                        <span className="text-3xl text-white">▶</span>
+                  <div className="relative w-full h-full">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-yellow-500 bg-opacity-90 rounded-full flex items-center justify-center transition-transform duration-300 transform group-hover:scale-110">
+                          <span className="text-3xl text-white">▶</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
                 
                 <div className="p-4 bg-white">
                   <h3 className="text-xl font-bold truncate">{video.title}</h3>
@@ -541,15 +547,15 @@ const Home: React.FC = () => {
           </div>
           
           <div className="mt-12">
-          <a 
-          href="/videos" // Ganti dengan URL halaman video Anda
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="px-6 py-3 bg-yellow-500 text-black rounded-full font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:scale-110 inline-block"
-        >
-          Lihat Semua Video
-        </a>
-        </div>
+            <a 
+              href="/videos" // Ganti dengan URL halaman video Anda
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="px-6 py-3 bg-yellow-500 text-black rounded-full font-bold hover:bg-yellow-400 transition-all duration-300 transform hover:scale-110 inline-block"
+            >
+              Lihat Semua Video
+            </a>
+          </div>
         </div>
       </section>
 
