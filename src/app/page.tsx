@@ -200,8 +200,8 @@ const Home: React.FC = () => {
         >
           <div className="transform transition-transform duration-500 hover:scale-110">
             <Image 
-              src="/images/loppy.png" 
-              alt="Loppy" 
+              src="/images/Botak.png" 
+              alt="Botak" 
               width={200} 
               height={240} 
               className="max-w-full h-auto"
