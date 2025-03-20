@@ -90,7 +90,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <header 
         id="home" 
-        className="relative w-full h-[930px] md:h-screen flex items-center justify-center bg-no-repeat bg-center bg-cover"
+        className="relative w-full h-[850px] md:h-screen flex items-center justify-center bg-no-repeat bg-center bg-cover"
         style={{
           backgroundImage: "url('/images/Mobile-Banner.png')" // version mobile
         }}
