@@ -32,7 +32,7 @@ const features = [
 
 const characters = [
   { img: "Botak", name: "Botak", desc: "Mahasiswa" },
-  { img: "Anomali", name: "Anomali", desc: "Mahasiswa" },
+  { img: "anomali", name: "anomali", desc: "Mahasiswa" },
   { img: "Dosen", name: "Dosen ", desc: "Dosen!" }
 ];
 
