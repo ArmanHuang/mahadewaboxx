@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaInstagram, FaTiktok } from "react-icons/fa"; 
-import Navbar from "../app/navbar";
+import Navbar from "./navbar";
 import Particles from "react-tsparticles";
 import { motion } from "framer-motion"; // Import framer-motion
 import 'aos/dist/aos.css';
@@ -31,9 +31,9 @@ const features = [
 ];
 
 const characters = [
-  { img: "loppy", name: "Loppy", desc: "Mahasiswa" },
-  { img: "anomali", name: "Anomali", desc: "Mahasiswa" },
-  { img: "character3", name: "Character 3", desc: "Coming Soon!" }
+  { img: "Botak", name: "Botak", desc: "Mahasiswa" },
+  { img: "Anomali", name: "Anomali", desc: "Mahasiswa" },
+  { img: "Dosen", name: "Dosen ", desc: "Dosen!" }
 ];
 
 const videos = [
@@ -90,7 +90,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <header 
         id="home" 
-        className="relative w-full h-[500px] md:h-screen flex items-center justify-center bg-no-repeat bg-center bg-cover"
+        className="relative w-full h-1000px] md:h-screen flex items-center justify-center bg-no-repeat bg-center bg-cover"
         style={{
           backgroundImage: "url('/images/Mobile-Banner.png')" // version mobile
         }}
